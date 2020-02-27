@@ -1,12 +1,10 @@
 package com.karthick.understandingactivitystates;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.drawable.AnimatedStateListDrawable;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.util.Log;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,64 +12,88 @@ public class MainActivity extends AppCompatActivity {
   onCreate(), onStart(), onResume()
 
   While in the app, when home button is pressed, the following methods will be called
-  onPause(), onSaveInstanceState(), onStop()
+  onPause(), onStop()
 
   While in the app, when back button is pressed, the following methods will be called
   onPause(), onStop(), onDestroy()
 */
 
+    public void showToast(String state) {
+
+        Toast toast;
+        toast = Toast.makeText(this, state, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("TAG", "onCreate");
+
+        String onCreate = getResources().getString(R.string.onCreate);
+        showToast(onCreate);
+
+        Log.i("MYTAG", onCreate);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("TAG", "onStart");
+
+        String onStart = getResources().getString(R.string.onStart);
+        showToast(onStart);
+
+        Log.i("MYTAG", onStart);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("TAG", "onResume");
+
+        String onResume = getResources().getString(R.string.onResume);
+        showToast(onResume);
+
+        Log.i("MYTAG", onResume);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i("TAG", "onPause");
+
+        String onPause = getResources().getString(R.string.onPause);
+        showToast(onPause);
+
+        Log.i("MYTAG", onPause);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("TAG", "onStop");
+
+        String onStop = getResources().getString(R.string.onStop);
+        showToast(onStop);
+
+        Log.i("MYTAG", onStop);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i("TAG", "onRestart");
+
+        String onRestart = getResources().getString(R.string.onRestart);
+        showToast(onRestart);
+
+        Log.i("MYTAG", onRestart);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("TAG", "onDestroy");
+
+        String onDestroy = getResources().getString(R.string.onDestroy);
+        showToast(onDestroy);
+
+        Log.i("MYTAG", onDestroy);
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.i("TAG", "onSaveInstanceState");
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.i("TAG", "onRestoreInstanceState");
-    }
 }
